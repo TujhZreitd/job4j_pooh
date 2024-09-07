@@ -27,7 +27,7 @@ public class TopicSchema implements Schema {
 
     @Override
     public void run() {
-        while(!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             for (String queueKey : receivers.keySet()) {
                 BlockingQueue<String> queue = data.getOrDefault(queueKey, new LinkedBlockingQueue<>());
                 CopyOnWriteArrayList<Receiver> receiverByQueue = receivers.get(queueKey);
